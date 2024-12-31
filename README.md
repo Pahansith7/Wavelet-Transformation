@@ -6,7 +6,7 @@ This project explores the application of wavelet transforms in bio-signal proces
 ---
 
 ## Contents
-\
+
 ### **1. Wavelet Properties**  
 - Derived the Mexican Hat wavelet mathematically, demonstrating zero mean, unity energy, compact support and analyzed the daughter wavelets and and their spectras.
 
@@ -19,63 +19,38 @@ This project explores the application of wavelet transforms in bio-signal proces
 
 ---
 
-### **2. Discrete Wavelet Transform (DWT)**  
-- **Wavelet Toolbox in MATLAB**: Decomposed signals into approximation and detail coefficients using Haar and Db9 wavelets.
-- **Coefficient extraction**: Used MATLAB functions `wavedec()`, `appcoef()`, and `detcoef()` for multi-level decomposition.  
-  ![image](https://github.com/user-attachments/assets/dwt-coefficients)
+### **3. Discrete Wavelet Transform (DWT)**  
+- Decomposed various signals(signals with various shapes and noise levels) into approximation and detail coefficients using Haar and Db9 wavelets.
+- Reconstructed the signal and analysed the effectiveness of Haar and Db9 wavelet for reconstructing the each signal.
+- Ex: -
+- Noisy(corrupted) signal(named y2 in the project) along with the noise free signal(x2).
+- ![image](https://github.com/user-attachments/assets/3edda9c8-13b4-4a86-be1c-ec66ba5d8d47)
+- A10, D10, D9, …., D2, D1 for signal y2 with haar wavelet.
+- ![image](https://github.com/user-attachments/assets/1135ed4a-520d-4c5c-9fa4-00548fbcf6e6)
+- FInal reconstructed signal(y2).
+- ![image](https://github.com/user-attachments/assets/7fea36af-fd69-4058-bdb1-03ca8d0fe30f)
 
 ---
 
-### **3. Signal Denoising with DWT**  
-- **Thresholding approach**: Suppressed coefficients below a threshold and reconstructed signals using `waverec()`. 
-- **Comparison**:
-  - Db9 wavelet performed better for preserving morphology (e.g., RMSE = 0.3445 for Y1).
-  - Haar wavelet excelled for minimal distortion (e.g., RMSE = 0.0512 for Y2).  
-  ![image](https://github.com/user-attachments/assets/denoising-performance)
+### **4. Signal Denoising with DWT**  
+- Used a **Thresholding approach**; suppressed coefficients below a threshold and reconstructed; (used hard thresholding).
+- Ex:-
+- Denoising y2 signal with db9 wavelet and Haar wavelet. 
+- Using db9:
+- ![image](https://github.com/user-attachments/assets/81181f7d-6972-4697-bc06-6eef71c76650)
+- Using Haar:
+- ![image](https://github.com/user-attachments/assets/59f127e9-cde1-4961-ac61-e71e6d9fb5e7)
+- Here we analyzed the importance of selecting the correct wavelet for signal denoising.
 
 ---
 
-### **4. Signal Compression with DWT**  
-- **Energy retention**: Retained 99% of the signal energy by keeping the most significant coefficients.
-- **Compression ratio**: Calculated based on the number of retained coefficients and total coefficients.
-- **Insights**: Effective signal compression with minor losses in morphological details.  
-  ![image](https://github.com/user-attachments/assets/compression-visualization)
+### **5. Signal Compression with DWT**  
+- Retained 99% of the signal energy by keeping the most significant coefficients during the compression.
+- Calculated the **Compression ratio** based on the number of retained coefficients and total coefficients.
+- Ex:- (Original and reconstructed signals using compressed data; compression ratio - 16.08).
+- ![image](https://github.com/user-attachments/assets/a41de314-6f73-401b-b6a3-2df6e3d9bdc7)
 
 ---
 
-## Optimizations
-- **Wavelet types**: Compared performance across Mexican Hat, Haar, and Db9.
-- **Parameters**: Explored threshold selection, decomposition levels, and cumulative energy analysis.
-
----
-
-## Evaluation Metrics
-- **Denoising performance**: Root Mean Squared Error (RMSE).
-- **Compression efficiency**: Compression Ratio (CR) and energy retention.
-
----
-
-## Frameworks and Tools
-- **Programming Language**: MATLAB  
-- **Wavelet Toolbox**: For signal decomposition, reconstruction, and analysis.
-
----
-
-## Key Results
-1. **CWT**:
-   - Effective at identifying frequency components in time-varying signals.
-2. **DWT**:
-   - Haar wavelet showed superior signal reconstruction in certain cases.
-3. **Signal Denoising**:
-   - Db9 wavelet preserved signal morphology better for high-frequency components.
-4. **Signal Compression**:
-   - Compression achieved without significant loss of information.
-
----
-
-## How to Use
-
-1. Clone this repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+## Acknowledgment
+This project was completed as part of the BM4152 Bio-Signal Processing course. 
